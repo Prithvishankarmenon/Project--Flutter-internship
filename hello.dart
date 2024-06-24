@@ -18,6 +18,13 @@ void main(){
           "domain":"flutter",
             "Name":"PS"
   };
+  
+    Map<String,dynamic> ar2 =
+  {
+          "domain":["flutter",22],
+            "Name":"PS"
+  };
+  print(ar2);
   print(ar1);
 
   
