@@ -12,4 +12,13 @@ void main(){
   print(numlist);
     
   print(numlist.isEmpty);
+  
+  Map<String,String> ar1 =
+  {
+          "domain":"flutter",
+            "Name":"PS"
+  };
+  print(ar1);
+
+  
 }
