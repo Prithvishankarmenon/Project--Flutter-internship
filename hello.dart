@@ -22,4 +22,11 @@ void main() {
   print(ar2["domain"][1]);
   print(ar2);
   print(ar1);
+
+  dynamic a = 22;
+  print(a);
+  a = 'hi';
+  print(a);
+  var b = "aa";
+//   b=12; not possible to change
 }
