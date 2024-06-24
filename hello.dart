@@ -38,9 +38,9 @@ void main() {
   } else {
     print("number is greater than 3");
   }
-String grade = 'A';
-  
-  switch(grade){
+  String grade = 'A';
+
+  switch (grade) {
     case 'A':
       print("Excellent");
     case 'B':
@@ -48,17 +48,23 @@ String grade = 'A';
     case 'C':
       print("Avarage");
     case 'D':
-      print("Poor");  
+      print("Poor");
   }
-  
-  
-  
-  
-  
-  
-  
+
+  for (int i = 0; i < 10; i++) {
+    print("$i");
+  }
+
+  List<String> color = ['red', 'white', 'black'];
+  for (String i in color) {
+    print(i);
+  }
+
+  String odev = oddeven(22);
+
+  print(odev);
 }
 
-
-
-
+oddeven(int a) {
+  print(a.isEven);
+}
