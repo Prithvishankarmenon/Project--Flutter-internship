@@ -28,5 +28,37 @@ void main() {
   a = 'hi';
   print(a);
   var b = "aa";
-//   b=12; not possible to change
+
+  int num = 3;
+
+  if (num == 2) {
+    print("this number is true");
+  } else if (num == 1) {
+    print("number is 1");
+  } else {
+    print("number is greater than 3");
+  }
+String grade = 'A';
+  
+  switch(grade){
+    case 'A':
+      print("Excellent");
+    case 'B':
+      print("good");
+    case 'C':
+      print("Avarage");
+    case 'D':
+      print("Poor");  
+  }
+  
+  
+  
+  
+  
+  
+  
 }
+
+
+
+
