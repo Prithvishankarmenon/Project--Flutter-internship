@@ -20,6 +20,21 @@ class LoginScreen extends StatelessWidget {
           Icon(Icons.more_vert, color: Colors.white60)
         ],
       ),
+
+      body:Column(
+        children: [
+          Text("Hello world",style: TextStyle(
+        fontSize: 20
+      ),),
+      Text("Hello world",style: TextStyle(
+        fontSize: 20
+      ),),
+      Text("Hello world",style: TextStyle(
+        fontSize: 20
+      ),)
+        ],
+      ),
+
     );
   }
 }
