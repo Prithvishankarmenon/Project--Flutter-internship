@@ -5,6 +5,19 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return  Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 0, 218, 100),
+        title: const Text("WhatsApp"),
+        titleTextStyle: TextStyle(
+          color: Colors.white, fontSize: 25, 
+         ),
+        actions: [
+          Icon(Icons.search),
+          Icon(Icons.more_vert)
+        ],
+
+      ),
+    );
   }
 }
