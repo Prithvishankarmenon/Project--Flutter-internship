@@ -28,6 +28,7 @@ class LogIn extends StatelessWidget {
           obscureText: true,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
+            prefixIcon: Icon(Icons.lock),
             suffixIcon : Icon(Icons.visibility_off),
             labelText: "PASSWORD" )))
       ]),
