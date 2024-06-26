@@ -11,6 +11,7 @@ class LogIn extends StatelessWidget {
         title: Text("LOGIN page Example"),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Padding(
         padding:  EdgeInsets.all(8.0),
