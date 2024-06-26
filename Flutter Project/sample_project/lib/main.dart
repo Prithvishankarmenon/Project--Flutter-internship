@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample_project/image-screen.dart';
+import 'package:sample_project/login.dart';
 
 import 'login_screen.dart';
 
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Imagescree()
+      home:LogIn()
     );
   }
 }
