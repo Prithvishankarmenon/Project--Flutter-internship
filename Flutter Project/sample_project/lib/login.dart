@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample_project/image-screen.dart';
 
 class LogIn extends StatelessWidget {
   const LogIn({super.key});
@@ -33,7 +34,10 @@ class LogIn extends StatelessWidget {
             labelText: "PASSWORD" ))),
 
             ElevatedButton (onPressed: () {
-              print("Button Pressed");
+              Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const Imagescree()),
+  );
               }, 
              child: Text("Log in "))
       ]),
