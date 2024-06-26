@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sample_project/image-screen.dart';
-import 'package:sample_project/login.dart';
 
-import 'login_screen.dart';
+import 'package:sample_project/login.dart';
+import 'package:sample_project/state_change.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:LogIn()
+      home:LogInst()
     );
   }
 }
