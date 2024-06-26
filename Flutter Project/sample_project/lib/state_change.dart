@@ -30,7 +30,7 @@ class _LogInState extends State<LogInst> {
         Padding(
             padding: EdgeInsets.all(8.0),
             child: TextField(
-                obscureText: select,
+                obscureText: select ,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.lock),

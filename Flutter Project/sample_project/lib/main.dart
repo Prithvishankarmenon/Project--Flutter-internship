@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:sample_project/login.dart';
+import 'package:sample_project/splash_screen.dart';
 import 'package:sample_project/state_change.dart';
 
 
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:LogInst()
+      home:SplashScreen()
     );
   }
 }
