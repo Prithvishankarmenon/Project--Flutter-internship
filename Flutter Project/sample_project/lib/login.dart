@@ -30,7 +30,12 @@ class LogIn extends StatelessWidget {
             border: OutlineInputBorder(),
             prefixIcon: Icon(Icons.lock),
             suffixIcon : Icon(Icons.visibility_off),
-            labelText: "PASSWORD" )))
+            labelText: "PASSWORD" ))),
+
+            ElevatedButton (onPressed: () {
+              print("Button Pressed");
+              }, 
+             child: Text("Log in "))
       ]),
     );
   }
