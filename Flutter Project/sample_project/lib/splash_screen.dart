@@ -13,41 +13,40 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  void initState(){
+  void initState() {
     super.initState();
-navigateToNextScreen();
+    navigateToNextScreen();
     print("Hello world");
   }
 
-void navigateToNextScreen()async {
-
+  void navigateToNextScreen() async {
     print("Hello world");
-  await  Future.delayed(Duration(seconds: 3));
-  bool logedIn = await getData();
-  if (logedIn==true) {
-    Navigator.push(context,
-     MaterialPageRoute(
-      builder: (context)=>LoginScreen()));
+    await Future.delayed(Duration(seconds: 3));
+    bool logedIn = await getData();
+    if (logedIn == true) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => LoginScreen()));
+    } else
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => LogInst()));
   }
-  else
-    Navigator.push(context,
-     MaterialPageRoute(
-      builder: (context)=>LogInst()
-    ));
-}
- 
-@override 
+
+  @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        title: Text("JYOTHI ENGENEERING COLLEGE",style: TextStyle(color: Colors.blue,fontSize: 20,fontWeight: FontWeight.bold),),
-      ) ,
+        title: Text(
+          "Splash Screen",
+          style: TextStyle(
+              color: Colors.blue, fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+      ),
       body: Column(
         children: [
-          Image.network("https://carwow-uk-wp-3.imgix.net/18015-MC20BluInfinito-scaled-e1707920217641.jpg")
+          Image.network(
+              "https://carwow-uk-wp-3.imgix.net/18015-MC20BluInfinito-scaled-e1707920217641.jpg")
         ],
       ),
-
     );
   }
 }

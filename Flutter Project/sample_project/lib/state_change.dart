@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:sample_project/functions.dart';
 import 'package:sample_project/image-screen.dart';
 import 'package:sample_project/login_screen.dart';
-  bool select = true;
+
+bool select = true;
+
 class LogInst extends StatefulWidget {
   const LogInst({super.key});
 
@@ -11,11 +13,11 @@ class LogInst extends StatefulWidget {
 }
 
 class _LogInState extends State<LogInst> {
-  String Pass ="123456";
-  String user ="hi123";
+  String Pass = "123456";
+  String user = "hi123";
 
   final userNamecmd = TextEditingController();
-   final passNamecmd = TextEditingController();
+  final passNamecmd = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class _LogInState extends State<LogInst> {
         Padding(
             padding: EdgeInsets.all(8.0),
             child: TextField(
-                obscureText: select ,
+                obscureText: select,
                 controller: passNamecmd,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -55,17 +57,18 @@ class _LogInState extends State<LogInst> {
                     labelText: "PASSWORD"))),
         ElevatedButton(
             onPressed: () async {
-             if(user == userNamecmd.text && Pass == passNamecmd.text) {
-             addDataTO(true);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginScreen()),
-              );}
-              else{
+              if (user == userNamecmd.text && Pass == passNamecmd.text) {
+                addDataTO(true);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
+                );
+              } else {
                 addDataTO(false);
-                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Invalid Username and Password ")));
-              };
-             
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Invalid Username and Password ")));
+              }
+              ;
             },
             child: Text("Log in "))
       ]),
