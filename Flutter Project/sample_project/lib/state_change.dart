@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample_project/functions.dart';
 import 'package:sample_project/image-screen.dart';
   bool select = true;
 class LogInst extends StatefulWidget {
@@ -45,11 +46,13 @@ class _LogInState extends State<LogInst> {
                         }),
                     labelText: "PASSWORD"))),
         ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Imagescree()),
-              );
+            onPressed: () async {
+              await addDataTO();
+              getData();
+             // Navigator.push(
+               // context,
+                //MaterialPageRoute(builder: (context) => const Imagescree()),
+             // );
             },
             child: Text("Log in "))
       ]),
