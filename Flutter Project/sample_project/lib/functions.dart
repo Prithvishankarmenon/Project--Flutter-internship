@@ -11,4 +11,4 @@ Future<void> getData() async{
 final prefs = await SharedPreferences.getInstance();
 String? data = prefs.getString("color");
 print(data);
-}
+} 

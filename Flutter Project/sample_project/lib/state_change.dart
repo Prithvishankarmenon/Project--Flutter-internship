@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sample_project/functions.dart';
 import 'package:sample_project/image-screen.dart';
+import 'package:sample_project/login_screen.dart';
   bool select = true;
 class LogInst extends StatefulWidget {
   const LogInst({super.key});
@@ -10,6 +11,11 @@ class LogInst extends StatefulWidget {
 }
 
 class _LogInState extends State<LogInst> {
+  String Pass ="123456";
+  String user ="hi123";
+
+  final userNamecmd = TextEditingController();
+   final passNamecmd = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +24,10 @@ class _LogInState extends State<LogInst> {
         title: Text("LOGIN page Example"),
       ),
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        const Padding(
+        Padding(
           padding: EdgeInsets.all(8.0),
           child: TextField(
+            controller: userNamecmd,
             decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.portrait),
@@ -32,6 +39,7 @@ class _LogInState extends State<LogInst> {
             padding: EdgeInsets.all(8.0),
             child: TextField(
                 obscureText: select ,
+                controller: passNamecmd,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.lock),
@@ -47,12 +55,15 @@ class _LogInState extends State<LogInst> {
                     labelText: "PASSWORD"))),
         ElevatedButton(
             onPressed: () async {
-              await addDataTO();
-              getData();
-             // Navigator.push(
-               // context,
-                //MaterialPageRoute(builder: (context) => const Imagescree()),
-             // );
+             if(user == userNamecmd.text && Pass == passNamecmd.text) 
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
+              );
+              else(
+                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Invalid Username and Password ")))
+              );
+             
             },
             child: Text("Log in "))
       ]),
