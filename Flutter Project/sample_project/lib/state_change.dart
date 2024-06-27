@@ -55,14 +55,16 @@ class _LogInState extends State<LogInst> {
                     labelText: "PASSWORD"))),
         ElevatedButton(
             onPressed: () async {
-             if(user == userNamecmd.text && Pass == passNamecmd.text) 
+             if(user == userNamecmd.text && Pass == passNamecmd.text) {
+             addDataTO(true);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const LoginScreen()),
-              );
-              else(
-                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Invalid Username and Password ")))
-              );
+              );}
+              else{
+                addDataTO(false);
+                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Invalid Username and Password ")));
+              };
              
             },
             child: Text("Log in "))

@@ -1,14 +1,18 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future<void> addDataTO() async{
+Future<void> addDataTO(bool isLogedIn) async{
 
   final prefs = await SharedPreferences.getInstance();
-  prefs.setString("color", "I Like Black Color");
+  prefs.setBool("isUserLogedIn", isLogedIn);
+
 }
 
-Future<void> getData() async{
+Future<bool> getData() async{
 
 final prefs = await SharedPreferences.getInstance();
-String? data = prefs.getString("color");
-print(data);
+bool? data = prefs.getBool("isUserLogedIn");
+if(data==null){
+data=false;}
+
+return data;
 } 

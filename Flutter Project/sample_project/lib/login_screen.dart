@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:sample_project/functions.dart';
+import 'package:sample_project/splash_screen.dart';
 
 class LoginScreen  extends StatelessWidget {
   const LoginScreen({super.key});
@@ -297,6 +299,17 @@ class LoginScreen  extends StatelessWidget {
           Text("4. complete ......................",style: TextStyle(color: Colors.white,fontSize: 16),)
           ,
           Text("5. complete ......................",style: TextStyle(color: Colors.white,fontSize: 16),)
+          , ElevatedButton(
+            onPressed: () async {
+             addDataTO(false);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SplashScreen()),
+              );}
+              
+             
+            ,
+            child: Text("Log out "))
           ],
         ) 
 
