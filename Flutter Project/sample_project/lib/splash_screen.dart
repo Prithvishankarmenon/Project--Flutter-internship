@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample_project/login.dart';
+import 'package:sample_project/state_change.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,14 +24,21 @@ void navigateToNextScreen()async {
 
     Navigator.push(context,
      MaterialPageRoute(
-      builder: (context)=>LogIn()
+      builder: (context)=>LogInst()
     ));
 }
  
 @override 
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: FlutterLogo(size: 300),),
+    return  Scaffold(
+      appBar: AppBar(
+        title: Text("JYOTHI ENGENEERING COLLEGE",style: TextStyle(color: Colors.blue,fontSize: 20,fontWeight: FontWeight.bold),),
+      ) ,
+      body: Column(
+        children: [
+          Image.network("https://carwow-uk-wp-3.imgix.net/18015-MC20BluInfinito-scaled-e1707920217641.jpg")
+        ],
+      ),
 
     );
   }
