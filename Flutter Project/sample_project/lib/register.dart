@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample_project/registerformmodalclass.dart';
+import 'package:sample_project/studentlist.dart';
 
 class registert extends StatefulWidget {
   const registert({super.key});
@@ -62,11 +63,17 @@ final dobcmd = TextEditingController();
               ),
               ElevatedButton(onPressed: (){
                 ModelForm student = ModelForm(namecmd.text, addresscmd.text, dobcmd.text, rollnocmd.text);
-                print(student.name);
-                print(student.address);
-                print(student.dob);
-                print(student.roll_no);
-              }, child: Text("Register"))
+                Column(children: [
+                  Text("Name is${student.name}"),
+                  Text("Address is${student.address}"),
+                  Text("DOB is${student.dob}"),
+                  Text("Roll NO is${student.roll_no}")
+                ],);
+              }, child: Text("Register")),
+
+              ElevatedButton(onPressed: () {
+                Navigator.push(context,MaterialPageRoute(builder: (context) => StudentListScreen()));
+              }, child: Text("view"))
           ],
         ),
       )
