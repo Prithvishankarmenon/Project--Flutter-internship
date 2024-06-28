@@ -66,9 +66,9 @@ class _LogInState extends State<LogInst> {
               } else {
                 addDataTO(false);
                 ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Invalid Username and Password ")));
+                  SnackBar(content: Text("Invalid Username and Password ")));
               }
-              ;
+              
             },
             child: Text("Log in "))
       ]),

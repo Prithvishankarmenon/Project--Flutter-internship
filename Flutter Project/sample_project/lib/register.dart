@@ -63,12 +63,7 @@ final dobcmd = TextEditingController();
               ),
               ElevatedButton(onPressed: (){
                 ModelForm student = ModelForm(namecmd.text, addresscmd.text, dobcmd.text, rollnocmd.text);
-                Column(children: [
-                  Text("Name is${student.name}"),
-                  Text("Address is${student.address}"),
-                  Text("DOB is${student.dob}"),
-                  Text("Roll NO is${student.roll_no}")
-                ],);
+                
               }, child: Text("Register")),
 
               ElevatedButton(onPressed: () {
