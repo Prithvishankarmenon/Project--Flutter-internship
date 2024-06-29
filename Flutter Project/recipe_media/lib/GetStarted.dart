@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_media/LoginPage.dart';
 
 class GetStarted extends StatelessWidget {
   const GetStarted({super.key});
@@ -8,7 +9,7 @@ class GetStarted extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.amberAccent[600],
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ElevatedButton(onPressed: (){

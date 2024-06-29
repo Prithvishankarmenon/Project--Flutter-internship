@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_media/Functions.dart';
+import 'package:recipe_media/HomeScreen.dart';
 bool select = true;
 String Pass = "12345";
 String user = "hi";
@@ -56,17 +58,16 @@ class _LoginPageState extends State<LoginPage> {
                 addDataTO(true);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomeScree
-()),
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
                 );
               } else {
                 addDataTO(false);
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text("Invalid Username and Password ")));
+                  SnackBar(content: Text("!!!Invalid Username and Password, Please try again.!!! ")));
               }
               
             },
-            child: Text("Log in "))
+            child: Text("Log in "),)
       ]),
 
     );
