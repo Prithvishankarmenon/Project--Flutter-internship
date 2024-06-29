@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sample_project/registerformmodalclass.dart';
 import 'package:sample_project/studentlist.dart';
+import 'package:sample_project/functions.dart';
+
 
 class registert extends StatefulWidget {
   const registert({super.key});
@@ -61,9 +63,9 @@ final dobcmd = TextEditingController();
                 border: OutlineInputBorder(),
                 labelText: "Enter the roll no.")),
               ),
-              ElevatedButton(onPressed: (){
+              ElevatedButton(onPressed: ()async {
                 ModelForm student = ModelForm(namecmd.text, addresscmd.text, dobcmd.text, rollnocmd.text);
-                
+                await saveStudent(student);
               }, child: Text("Register")),
 
               ElevatedButton(onPressed: () {
