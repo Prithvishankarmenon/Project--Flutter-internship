@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           ElevatedButton(onPressed: (){
             Navigator.push(
-          context, MaterialPageRoute(builder: (context) => CreateNewReceipe()));
+          context, MaterialPageRoute(builder: (context) => CreateNewRecipe()));
           }, child: Text("Add Receipe"))
         ,
         ElevatedButton(onPressed: () {

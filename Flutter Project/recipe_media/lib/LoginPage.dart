@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_media/Functions.dart';
 import 'package:recipe_media/HomeScreen.dart';
+import 'package:recipe_media/Signin.dart';
+
 bool select = true;
 String Pass = "12345";
 String user = "hi";
@@ -19,57 +21,124 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("LOGIN PAGE"),
-      ),
-      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: TextField(
-            controller: userNamecmd,
-            decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.portrait),
-                suffixIcon: Icon(Icons.visibility),
-                labelText: "USER NAME"),
+      backgroundColor: Color.fromRGBO(251,109,59, 1.0), // Set background color to orange
+      body: Stack(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Spacer(), // Push the login form to the bottom
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    Text(
+                      "Login",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      "Login to your account",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: TextField(
+                        controller: userNamecmd,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          prefixIcon: Icon(Icons.portrait, color: Colors.orange),
+                          labelText: "Username or email id",
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: TextField(
+                        obscureText: select,
+                        controller: passWordcmd,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          prefixIcon: Icon(Icons.lock, color: Colors.orange),
+                          suffixIcon: IconButton(
+                            icon: select
+                                ? Icon(Icons.visibility_off_sharp, color: Colors.orange)
+                                : Icon(Icons.visibility, color: Colors.orange),
+                            onPressed: () {
+                              setState(() {
+                                select = !select;
+                              });
+                            },
+                          ),
+                          labelText: "Password",
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 24),
+                    ElevatedButton(
+                      onPressed: () async {
+                        if (user == userNamecmd.text && Pass == passWordcmd.text) {
+                          addDataTO(true);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const HomeScreen()),
+                          );
+                        } else {
+                          addDataTO(false);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("Invalid Username and Password, Please try again.")),
+                          );
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.orangeAccent,
+                        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                      child: Text(
+                        "Login",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    TextButton(
+                      onPressed: () {
+                        addDataTO(true);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Signin()),);
+                      },
+                      child: Text(
+                        "not a user? Sign up now",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-        ),
-        Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextField(
-                obscureText: select,
-                controller: passWordcmd,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.lock),
-                    suffixIcon: IconButton(
-                        icon: select
-                            ? Icon(Icons.visibility_off_sharp)
-                            : Icon(Icons.visibility),
-                        onPressed: () {
-                          setState(() {
-                            select = !select;
-                          });
-                        }),
-                    labelText: "PASSWORD"))),
-        ElevatedButton(
-            onPressed: () async {
-              if (user == userNamecmd.text && Pass == passWordcmd.text) {
-                addDataTO(true);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
-                );
-              } else {
-                addDataTO(false);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text("!!!Invalid Username and Password, Please try again.!!! ")));
-              }
-              
-            },
-            child: Text("Log in "),)
-      ]),
-
+        ],
+      ),
     );
   }
 }
