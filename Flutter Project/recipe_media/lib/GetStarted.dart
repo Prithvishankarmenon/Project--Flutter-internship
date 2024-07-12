@@ -26,7 +26,7 @@ class GetStarted extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Image.network(
-                  "https://s3-alpha-sig.figma.com/img/8a36/925e/e7f1a437e5f8358151aa853d070da588?Expires=1720396800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=M6aZUJe0IAwUIm8MzjKTvL7weeqZ0uGes4qEElJpZtC8Su7mHQDSNx9SwRxWge0M16kHHjRWS1VdHZt-NqXVzLNzfq-JaPHZhlrILTw1V4UmCLcHQ-o9aPSswI87kmKtFXeK~2EelG2De5-CVu8rMsp65MJ9erNTG5RhXPll9LbgLaNa15QrQJVyPicfLu0C2V67ayfQVPu03n8MRJR7LAeJcx607Wn7XfydnFbiQ00Pba-o0p86hAInfVUxAc2surLXt2SBcCP6jtLsbgCu30sGfIYFIRLbUJ~ZcnXgaW3IXnPhB9Hdeq0FD5GY5XsbTkRyfpaNPJIF~K3E1qvw2w__",
+                  "https://s3-alpha-sig.figma.com/img/8a36/925e/e7f1a437e5f8358151aa853d070da588?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=OK5QzBFsS7x6zR5ZpdsTFbERM~Mp9awJQtH0GM9o305JnQZ55Wq6hKc~ttdywzmsJAQqpVmekSD~LbtkhJf~xcyzHkdHqhJmZBiVpJ3xzNzEZp823xfkNzsJSszjMijBwPL3ldHBbnBRlOCNV1jN-6uh8WvK1ZcJA--U2flW1gp5erQCF8FqnHC9blA-u2gXl~b3GnDNS9MHDUFF7qYQYx1jHLT7DIP7Av88NsHkoFytp4tmkbrY2ZD06W2JBOguyUlwP02MHN2Ax3bLWpBYLZJttz6mfinpF3WOihqMhej0X~0SJQ5YkjJpMaJxYcKoTbHlJZXaHepcm3p7XlKU9A__",
                   fit: BoxFit.cover,
                   height: 409,
                   width: double.infinity,

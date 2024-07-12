@@ -38,14 +38,14 @@ class _SplashScreenState extends State<SplashScreen> {
           // Full screen image
           Positioned.fill(
             child: Image.network(
-              "https://s3-alpha-sig.figma.com/img/20f8/1fbb/1809c8e760050809e0c3c98d19a20b56?Expires=1720396800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=iZF2POMitinik1CsKYBI8EcGHtxc1~ciZ6VJAckYnGeoPqXR3QG01Sgk5E4gdQgokrZrgxxO-A~KJ8x31TFNNM~cV0TkzZw8vIBIsfop~42woi8Fv~H9ZCG5GEdZyyBZQJunI8BzG2pG40eC1GXd~1h9wYg5FxatCTXoNV8O8aSjDANU4YCb1L1V68bN83lnisXUmLR9llGdX88ukWsC7N6QXnTcQmXOA8L8YxEgN3~gstNZwokqVwaWNcpGOW7XPB3YBwqUAl98ZBE3RKEJkTm2299vjbTIT9Anvol0L6puBe2Au5pCVMUngjWZjs-B7f~zbCwIn56GFf-qv91sHA__",
+              "https://s3-alpha-sig.figma.com/img/20f8/1fbb/1809c8e760050809e0c3c98d19a20b56?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=o8BQNmyCVCh7BJJv4rHik6eCCaMn~UePX~2d9cU8-eu0ywr7W6gKChofHTRFLhF59ux9BbJWl8t3sXGBVQcCu4oS9G9f3fa6D0klU~lU~dI560NX4ldAmYJvOj4jJrLuBRrNg4BnxjsKmIp17Z1dZ3p6ntY8KwLYogTwg7E0snqCcq5IOq7aaJ0S6KK9MJX5T6BqQRpBb2V823HBqZeAjtTZ11ULso1AD7k3~q7GVa6aMDzM~8WW4qq4qZ1IzMXuOdhLmqCHiWcI0RQ5vNBvd-U7FfPrfCjnRB2UsOebwozCBfr7RZnj4kiMtC6U8vZEEtzV5kg9-c~hDn3oarKxCA__",
               fit: BoxFit.cover,
             ),
           ),
           // Centered image
           Center(
             child: Image.network(
-              "https://s3-alpha-sig.figma.com/img/906f/ef6b/74a76c1d0fa6e6b624d6a0dcb586ce03?Expires=1720396800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dNQVe-PXFBfrxQnt3LYVzLCk1wlRLJ5Bzx3tsXZSTPpEMiVn1HGvbjA5hXdHu0~Cz8EfpU~9EObtTjXTuV-ZAv5OpAJkKjcdIM~ly~qQ2KPDcYt1aQ6ZfrIO3lvBqpiac38o9PpHw2X5BKwQzzHg~WHDOGUMHKMuP4oCsyUuKJQgP0g~UrygbPIso1aNwr4oZTm~afD74hj7PBYlbj4wNL2kQmth4hWtrLtXF~HVOxxpYgSX~tqRkgeNOIqCTl3J3Ea4a-T8hoxG7PlYVDuNCXpFLeutVu7dykR4nELuZ8hF4OLZ1HVDVNPrK6P4K9jUyQH6C5AfNkMad4GU8hJe0Q__",
+              "https://s3-alpha-sig.figma.com/img/906f/ef6b/74a76c1d0fa6e6b624d6a0dcb586ce03?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NEJMdBZOJ1AdE~PLGM02aO8bM7k3~9oS3X16LbkgVxbCfemAEtES5AkLECXGLN7Ah~jTyKnl1BcbkLwBbmTmo1GzsxVQCjvxYq6ltWCeIoBjDOVY2WYbQ7Q50Y42dI9lEOhleEFdaFNXCsZdVQG7hYjb-~s-nunPbNkqk5qcELpsCPbMUzOz8-nbL4AjFylLoa1JyfvEn2X0eVAYApE5JkS3gCp5XM42X77Mm59oEZJMdLaykaxPRWgyFSrd8-xcpx16Hfk4i0YNEU-bOIXVLbmxyZ944HaMhk2-hcXsDVUtnDS9-p5Q~g~bM8aQKjKUtzu-sNafsL1abTIpzZbMXg__",
               width: 200, // Set desired width
               height: 200, // Set desired height
              // fit: BoxFit.cover,
