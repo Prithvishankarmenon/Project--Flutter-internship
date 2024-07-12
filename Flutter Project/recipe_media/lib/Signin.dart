@@ -13,169 +13,242 @@ class _SigninState extends State<Signin> {
   final TextEditingController emailcmd = TextEditingController();
   final TextEditingController mobilecmd = TextEditingController();
   final TextEditingController passWordcmd = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
   bool select = true;
+  bool agreeToTerms = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(251, 109, 59, 1.0), // Set background color to orange
+      backgroundColor: const Color.fromRGBO(251, 109, 59, 1.0), // Set background color to orange
       body: Stack(
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Spacer(), // Push the sign-up form to the bottom
+              const Spacer(), // Push the sign-up form to the bottom
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Image.network(
-                      'https://your-image-url.com/pizza.png', // Replace with your image URL
-                      fit: BoxFit.cover,
-                      height: 200,
-                      width: double.infinity,
-                    ),
-                    SizedBox(height: 16),
-                    Text(
-                      "Sign Up",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      Image.network(
+                        'https://your-image-url.com/pizza.png', // Replace with your image URL
+                        fit: BoxFit.cover,
+                        height: 200,
+                        width: double.infinity,
                       ),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      "Create new account",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: TextField(
-                        controller: userNamecmd,
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          prefixIcon: Icon(Icons.person, color: Colors.orange),
-                          labelText: "Username",
+                      const SizedBox(height: 16),
+                      const Text(
+                        "Sign Up",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
                       ),
-                    ),
-                    SizedBox(height: 16),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: TextField(
-                        controller: emailcmd,
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          prefixIcon: Icon(Icons.email, color: Colors.orange),
-                          labelText: "Username or email id",
+                      const SizedBox(height: 8),
+                      const Text(
+                        "Create new account",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
                         ),
                       ),
-                    ),
-                    SizedBox(height: 16),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: TextField(
-                        controller: mobilecmd,
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8.0),
+                      const SizedBox(height: 16),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: TextFormField(
+                          controller: userNamecmd,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            prefixIcon: const Icon(Icons.person, color: Colors.orange),
+                            hintText: "Username",
+                            errorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                              borderSide: const BorderSide(color: Colors.white),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                              borderSide: const BorderSide(color: Colors.white),
+                            ),
+                            errorStyle: const TextStyle(color: Colors.white),
                           ),
-                          prefixIcon: Icon(Icons.phone, color: Colors.orange),
-                          labelText: "Mobile number",
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter a valid username';
+                            }
+                            return null;
+                          },
                         ),
                       ),
-                    ),
-                    SizedBox(height: 16),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: TextField(
-                        obscureText: select,
-                        controller: passWordcmd,
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
+                      const SizedBox(height: 16),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: TextFormField(
+                          controller: emailcmd,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            prefixIcon: const Icon(Icons.email, color: Colors.orange),
+                            hintText: "Email",
+                            errorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                              borderSide: const BorderSide(color: Colors.white),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                              borderSide: const BorderSide(color: Colors.white),
+                            ),
+                            errorStyle: const TextStyle(color: Colors.white),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter a valid email';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: TextFormField(
+                          controller: mobilecmd,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            prefixIcon: const Icon(Icons.phone, color: Colors.orange),
+                            hintText: "Mobile number",
+                            errorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                              borderSide: const BorderSide(color: Colors.white),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                              borderSide: const BorderSide(color: Colors.white),
+                            ),
+                            errorStyle: const TextStyle(color: Colors.white),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter a valid mobile number';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: TextFormField(
+                          obscureText: select,
+                          controller: passWordcmd,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            prefixIcon: const Icon(Icons.lock, color: Colors.orange),
+                            suffixIcon: IconButton(
+                              icon: select
+                                  ? const Icon(Icons.visibility_off_sharp, color: Colors.orange)
+                                  : const Icon(Icons.visibility, color: Colors.orange),
+                              onPressed: () {
+                                setState(() {
+                                  select = !select;
+                                });
+                              },
+                            ),
+                            hintText: "Password",
+                            errorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                              borderSide: const BorderSide(color: Colors.white),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                              borderSide: const BorderSide(color: Colors.white),
+                            ),
+                            errorStyle: const TextStyle(color: Colors.white),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter a valid password';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                      ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate() && agreeToTerms) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const HomeScreen()),
+                            );
+                          } else if (!agreeToTerms) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text("You must agree to the terms and conditions to sign up.")),
+                            );
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.orangeAccent,
+                          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                          prefixIcon: Icon(Icons.lock, color: Colors.orange),
-                          suffixIcon: IconButton(
-                            icon: select
-                                ? Icon(Icons.visibility_off_sharp, color: Colors.orange)
-                                : Icon(Icons.visibility, color: Colors.orange),
-                            onPressed: () {
+                        ),
+                        child: const Text(
+                          "Sign Up",
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Checkbox(
+                            value: agreeToTerms,
+                            onChanged: (bool? value) {
                               setState(() {
-                                select = !select;
+                                agreeToTerms = value ?? false;
                               });
                             },
                           ),
-                          labelText: "Password",
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 24),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const HomeScreen()),);
-                      
-                      },
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.orangeAccent,
-                        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                      ),
-                      child: Text(
-                        "Sign Up",
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Checkbox(
-                          value: true, // Replace with actual value
-                          onChanged: (bool? value) {
-                            // Handle checkbox state
-                          },
-                        ),
-                        Text(
-                          "I agree to the ",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            // Navigate to terms and conditions
-                          },
-                          child: Text(
-                            "Terms and Conditions",
-                            style: TextStyle(
-                              color: Colors.white,
-                              decoration: TextDecoration.underline,
+                          const Text(
+                            "I agree to the ",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              // Navigate to terms and conditions
+                            },
+                            child: const Text(
+                              "Terms and Conditions",
+                              style: TextStyle(
+                                color: Colors.white,
+                                decoration: TextDecoration.underline,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
