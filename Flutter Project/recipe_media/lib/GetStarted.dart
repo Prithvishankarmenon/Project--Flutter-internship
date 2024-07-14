@@ -25,8 +25,8 @@ class GetStarted extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                Image.network(
-                  "https://s3-alpha-sig.figma.com/img/8a36/925e/e7f1a437e5f8358151aa853d070da588?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=OK5QzBFsS7x6zR5ZpdsTFbERM~Mp9awJQtH0GM9o305JnQZ55Wq6hKc~ttdywzmsJAQqpVmekSD~LbtkhJf~xcyzHkdHqhJmZBiVpJ3xzNzEZp823xfkNzsJSszjMijBwPL3ldHBbnBRlOCNV1jN-6uh8WvK1ZcJA--U2flW1gp5erQCF8FqnHC9blA-u2gXl~b3GnDNS9MHDUFF7qYQYx1jHLT7DIP7Av88NsHkoFytp4tmkbrY2ZD06W2JBOguyUlwP02MHN2Ax3bLWpBYLZJttz6mfinpF3WOihqMhej0X~0SJQ5YkjJpMaJxYcKoTbHlJZXaHepcm3p7XlKU9A__",
+                Image.asset(
+                  'assets/getstarted.png',
                   fit: BoxFit.cover,
                   height: 409,
                   width: double.infinity,
