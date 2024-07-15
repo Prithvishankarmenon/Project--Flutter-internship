@@ -15,47 +15,63 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final userNamecmd = TextEditingController();
-  final passWordcmd = TextEditingController();
+  final userNameController = TextEditingController();
+  final passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  Colors.deepOrange[400],
+      backgroundColor: Colors.white,
+      //appBar: AppBar(backgroundColor: Colors.deepOrange[400],),
+      appBar: PreferredSize(preferredSize: Size.fromHeight(0), child: (AppBar())),
       body: Stack(
         children: [
+          
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Spacer(), // Push the login form to the bottom
+              Container(
+            height: MediaQuery.of(context).size.height * 0.45,
+            decoration: BoxDecoration(
+              image:DecorationImage(image: AssetImage('assets/login.png'),fit: BoxFit.cover),
+              color: Colors.deepOrange[400],
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(50),
+                bottomRight: Radius.circular(50),
+              
+              ),
+            ),
+              ),
+              
+              // Push the login form to the bottom
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(13.0),
                 child: Form(
                   key: _formKey,
                   child: Column(
                     children: [
-                      const Text(
+                      Text(
                         "Login",
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: Colors.deepOrange[400],
                         ),
                       ),
                       const SizedBox(height: 8),
-                      const Text(
+                      Text(
                         "Login to your account",
                         style: TextStyle(
                           fontSize: 16,
-                          color: Colors.white,
+                          color: Colors.deepOrange[400],
                         ),
                       ),
                       const SizedBox(height: 16),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: TextFormField(
-                          controller: userNamecmd,
+                          controller: userNameController,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
@@ -87,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: TextFormField(
                           obscureText: select,
-                          controller: passWordcmd,
+                          controller: passwordController,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
@@ -112,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.0),
-                              borderSide: const BorderSide(color: Colors.white,width:1),
+                              borderSide: const BorderSide(color: Colors.white, width: 1),
                             ),
                             errorStyle: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                           ),
@@ -128,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                       ElevatedButton(
                         onPressed: () async {
                           if (_formKey.currentState!.validate()) {
-                            if (correctUser == userNamecmd.text && correctPass == passWordcmd.text) {
+                            if (correctUser == userNameController.text && correctPass == passwordController.text) {
                               addDataTO(true);
                               Navigator.push(
                                 context,
@@ -163,9 +179,9 @@ class _LoginPageState extends State<LoginPage> {
                             MaterialPageRoute(builder: (context) => const Signin()),
                           );
                         },
-                        child: const Text(
+                        child: Text(
                           "Not a user? Sign up now",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.deepOrange[400]),
                         ),
                       ),
                     ],

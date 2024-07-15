@@ -27,7 +27,7 @@ class GetStarted extends StatelessWidget {
                 SizedBox(height: 20),
                 Image.asset(
                   'assets/getstarted.png',
-                  fit: BoxFit.cover,
+                  fit: BoxFit.contain,
                   height: 409,
                   width: double.infinity,
                 ),

@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(251,109,59, 1.0),
+      backgroundColor: Color.fromRGBO(251, 109, 59, 1.0),
       body: Stack(
         children: [
           // Full screen image
@@ -42,13 +42,28 @@ class _SplashScreenState extends State<SplashScreen> {
               fit: BoxFit.cover,
             ),
           ),
-          // Centered image
+          // Centered image and text
           Center(
-            child: Image.asset(
-              'assets/splash1.png',
-              width: 200, // Set desired width
-              height: 200, // Set desired height
-             // fit: BoxFit.cover,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  'assets/splash1.png',
+                  width: 250, // Set desired width
+                  height: 150, // Set desired height
+                  fit: BoxFit.contain,
+                ),
+                SizedBox(height: 4), // Space between image and text
+                Text(
+                  'Tasty',
+                  style: TextStyle(
+                    fontSize: 50, // Set desired font size
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic, // Set desired font weight
+                    color: Colors.white, // Set desired text color
+                  ),
+                ),
+              ],
             ),
           ),
         ],
