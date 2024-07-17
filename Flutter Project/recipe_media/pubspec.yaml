@@ -66,6 +66,7 @@ flutter:
     - assets/splash2.png
     - assets/login.png
     - assets/signin.png
+    - assets/cake.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
