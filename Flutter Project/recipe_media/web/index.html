@@ -40,6 +40,25 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyC-sn4T8xi73qzbc3e5hnbLlk3-6pz6NM8",
+      authDomain: "receipe-media.firebaseapp.com",
+      projectId: "receipe-media",
+      storageBucket: "receipe-media.appspot.com",
+      messagingSenderId: "573386030989",
+      appId: "1:573386030989:web:59e9b3511cf0061639c7c4"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
