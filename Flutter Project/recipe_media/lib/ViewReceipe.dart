@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_media/Functions.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,27 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  List<Map<String, dynamic>> recipes = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadRecipes();
+  }
+
+  Future<void> _loadRecipes() async {
+    List<Map<String, dynamic>> loadedRecipes = await SharedPrefsHelper.getRecipes();
+    setState(() {
+      recipes = loadedRecipes;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,25 +119,20 @@ class ProfilePage extends StatelessWidget {
               SizedBox(height: 24),
               Divider(color: Colors.orange, thickness: 1),
               SizedBox(height: 16),
-              ListView(
+              ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                children: [
-                  RecipeCard(
-                    image: 'assets/hawaiian_pizza.png', // replace with your image asset
-                    title: 'Hawaiian Pizza',
-                    description: 'Controversial but beloved, this pizza is topped with tomato sauce, mozzarella cheese, ham, and pineapple.',
-                    likes: '3.1k',
-                    comments: '256',
-                  ),
-                  RecipeCard(
-                    image: 'assets/tomato_soup.png', // replace with your image asset
-                    title: 'Tomato Soup',
-                    description: 'Smooth and tangy, often served with a grilled cheese sandwich, made from tomatoes, broth, and seasonings.',
-                    likes: '102',
-                    comments: '5',
-                  ),
-                ],
+                itemCount: recipes.length,
+                itemBuilder: (context, index) {
+                  final recipe = recipes[index];
+                  return RecipeCard(
+                    image: recipe['imageUrl'],
+                    title: recipe['title'],
+                    description: recipe['description'],
+                    likes: '0', // Placeholder for likes
+                    comments: '0', // Placeholder for comments
+                  );
+                },
               ),
             ],
           ),
@@ -179,10 +196,10 @@ class RecipeCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
+              child: Image.network(
                 image,
-                height: 80,
-                width: 80,
+                height: 0,
+                width: 0,
                 fit: BoxFit.cover,
               ),
             ),

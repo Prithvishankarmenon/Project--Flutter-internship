@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_media/HomeScreen.dart';
+import 'package:recipe_media/Functions.dart';
+
 
 class CreateNewRecipe extends StatefulWidget {
   const CreateNewRecipe({super.key});
@@ -30,6 +31,23 @@ class _CreateNewRecipeState extends State<CreateNewRecipe> {
     setState(() {
       stepControllers.add(TextEditingController());
     });
+  }
+
+  Future<void> saveRecipe() async {
+    Map<String, dynamic> recipe = {
+      'title': titleController.text,
+      'description': descriptionController.text,
+      'kcal': kcalController.text,
+      'prepTime': prepTimeController.text,
+     'imageUrl': imageUrlController.text,
+      'ingredients': ingredientControllers.map((controller) => controller.text).toList(),
+      'steps': stepControllers.map((controller) => controller.text).toList(),
+      'isVeg': isVeg,
+      'isNonVeg': isNonVeg,
+    };
+
+    await SharedPrefsHelper.saveRecipe(recipe);
+    Navigator.pop(context);
   }
 
   @override
@@ -242,11 +260,7 @@ class _CreateNewRecipeState extends State<CreateNewRecipe> {
               SizedBox(height: 16),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {
-                     Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const HomeScreen()),);
-                  },
+                  onPressed: saveRecipe,
                   style: ElevatedButton.styleFrom(
                     primary: Colors.orange,
                     padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),

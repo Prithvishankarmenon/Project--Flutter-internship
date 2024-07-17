@@ -200,6 +200,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.5"
+  shared_preferences_helper:
+    dependency: "direct main"
+    description:
+      name: shared_preferences_helper
+      sha256: "0ffda6d6611771aa3e9f7413ee32de4c63217983f20818b21a8fbd0ec1279cf0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   shared_preferences_linux:
     dependency: transitive
     description:
