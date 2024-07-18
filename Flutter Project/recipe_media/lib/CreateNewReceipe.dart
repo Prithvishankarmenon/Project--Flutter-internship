@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_media/Functions.dart';
+import 'package:recipe_media/ViewReceipe.dart';
 
 
 class CreateNewRecipe extends StatefulWidget {
@@ -34,20 +35,28 @@ class _CreateNewRecipeState extends State<CreateNewRecipe> {
   }
 
   Future<void> saveRecipe() async {
+    List<String> ingredients = ingredientControllers.map((controller) => controller.text).toList();
+    List<String> steps = stepControllers.map((controller) => controller.text).toList();
+
     Map<String, dynamic> recipe = {
       'title': titleController.text,
       'description': descriptionController.text,
       'kcal': kcalController.text,
       'prepTime': prepTimeController.text,
-     'imageUrl': imageUrlController.text,
-      'ingredients': ingredientControllers.map((controller) => controller.text).toList(),
-      'steps': stepControllers.map((controller) => controller.text).toList(),
+      'imageUrl': imageUrlController.text,
       'isVeg': isVeg,
       'isNonVeg': isNonVeg,
+      'ingredients': ingredients,
+      'steps': steps,
     };
 
     await SharedPrefsHelper.saveRecipe(recipe);
-    Navigator.pop(context);
+
+    // Navigate back to ProfilePage
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => ProfilePage()),
+    );
   }
 
   @override
@@ -66,7 +75,7 @@ class _CreateNewRecipeState extends State<CreateNewRecipe> {
           IconButton(
             icon: Icon(Icons.close, color: Colors.orange),
             onPressed: () {
-              // Close button logic
+              Navigator.pop(context);
             },
           ),
         ],

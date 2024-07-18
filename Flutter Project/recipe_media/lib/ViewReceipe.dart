@@ -126,7 +126,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 itemBuilder: (context, index) {
                   final recipe = recipes[index];
                   return RecipeCard(
-                    image: recipe['imageUrl'],
+                    imageUrl: recipe['imageUrl'],
                     title: recipe['title'],
                     description: recipe['description'],
                     likes: '0', // Placeholder for likes
@@ -172,14 +172,14 @@ class _ProfilePageState extends State<ProfilePage> {
 }
 
 class RecipeCard extends StatelessWidget {
-  final String image;
+  final String imageUrl;
   final String title;
   final String description;
   final String likes;
   final String comments;
 
   RecipeCard({
-    required this.image,
+    required this.imageUrl,
     required this.title,
     required this.description,
     required this.likes,
@@ -194,13 +194,11 @@ class RecipeCard extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.network(
-                image,
-                height: 0,
-                width: 0,
-                fit: BoxFit.cover,
+            // Display the image URL as text
+            Expanded(
+              child: Text(
+                imageUrl,
+                style: TextStyle(fontSize: 14, color: Colors.grey),
               ),
             ),
             SizedBox(width: 16),

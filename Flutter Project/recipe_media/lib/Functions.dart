@@ -21,19 +21,20 @@ return data;
 
 
 
+
 class SharedPrefsHelper {
-  static const String recipesKey = 'recipes';
+  static const String _recipesKey = 'recipes';
 
   static Future<void> saveRecipe(Map<String, dynamic> recipe) async {
     final prefs = await SharedPreferences.getInstance();
-    final recipes = prefs.getStringList(recipesKey) ?? [];
+    List<String> recipes = prefs.getStringList(_recipesKey) ?? [];
     recipes.add(jsonEncode(recipe));
-    await prefs.setStringList(recipesKey, recipes);
+    await prefs.setStringList(_recipesKey, recipes);
   }
 
   static Future<List<Map<String, dynamic>>> getRecipes() async {
     final prefs = await SharedPreferences.getInstance();
-    final recipes = prefs.getStringList(recipesKey) ?? [];
+    List<String> recipes = prefs.getStringList(_recipesKey) ?? [];
     return recipes.map((recipe) => jsonDecode(recipe) as Map<String, dynamic>).toList();
   }
 }
